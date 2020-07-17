@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Hack Club CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Hack Club Webring</title>
+  </head>
+  <body>
+    <a href="https://hackclub.com/"><img style="position: absolute; top: 0; left: 10px; border: 0; width: 112px; z-index: 999;" src="https://assets.hackclub.com/flag-orpheus-top.svg" alt="Hack Club"/></a>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container text-center">
+        <p class="display-4" style="margin-bottom:0">🕸️💍</p>
+        <h1 class="title">Hack Club Webring</h1>
+        <p class="lead" >Discover websites made by Hack Clubbers.</p>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <p class="lead">Back in the 90's, webrings once brought the internet together, creating a community for fellow site enthusiasts. We're bringing the concept back over 20 years later to create a community that's more robust and interconnected, refreshing the idea while maintaining the same creative spirit that existed then.</p>
+      <p class="lead">The following webring connects <a href="https://hackclub.com/" title="Hack Club Website">Hack Club</a> members and their personal websites. Check them out below or join <a href="#">here</a>!</p>
+
+      <h2 class="mt-5">How to Join</h2>
+      <p>First and foremost, you must already be on the <a href="https://hackclub.com/slack/" title="Join our Slack!">Hack Club Slack</a>.</p>
+      <p>Insert the following HTML into your website:</p>
+      <div class="row">
+        <div class="col-sm-4">
+          <div id="webring-wrapper">
+            <style>
+              .webring-anchor {
+                font-size: 24px !important;
+                color: #8492a6 !important;
+                text-decoration: none !important;
+              }
+              .webring-logo {
+                background-image: url(https://assets.hackclub.com/icon-rounded.svg);
+                background-repeat: no-repeat;
+                background-position: top left;
+                background-size: contain;
+                -webkit-flex-shrink: 0;
+                -ms-flex-negative: 0;
+                flex-shrink: 0;
+                display: inline-block;
+                width: 36px;
+                height: 36px;
+                margin: 0 4px;
+                vertical-align: middle;
+              }
+            </style>
+            <a href="#" class="webring-anchor" title="Previous">‹</a>
+            <a href="#" class="webring-logo" title="Hack Club Webring" alt="Hack Club Webring"><!--<img src="https://assets.hackclub.com/icon-rounded.svg"/>--></a>
+            <a href="#" class="webring-anchor" title="Next">›</a>
+          </div>
+        </div>
+        <div class="col-sm">
+          <pre><code>
+&#x3C;style&#x3E;.webring-anchor{font-size: 24px !important; color: #8492a6 !important; text-decoration: none !important;}.webring-logo{background-image: url(https://assets.hackclub.com/icon-rounded.svg); background-repeat: no-repeat; background-position: top left; background-size: contain; -webkit-flex-shrink: 0; -ms-flex-negative: 0; flex-shrink: 0; display: inline-block; width: 36px; height: 36px; margin: 0 4px; vertical-align: middle;}&#x3C;/style&#x3E; &#x3C;a href=&#x22;#&#x22; class=&#x22;webring-anchor&#x22; title=&#x22;Previous&#x22;&#x3E;&#x2039;&#x3C;/a&#x3E; &#x3C;a href=&#x22;#&#x22; class=&#x22;webring-logo&#x22; title=&#x22;Hack Club Webring&#x22; alt=&#x22;Hack Club Webring&#x22;&#x3E;&#x3C;/a&#x3E; &#x3C;a href=&#x22;#&#x22; class=&#x22;webring-anchor&#x22; title=&#x22;Next&#x22;&#x3E;&#x203A;&#x3C;/a&#x3E;
+          </code></pre>
+        </div>
+      </div>
+
+
+      <h2 class="mt-5">Current Members</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Member</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--<tr>
+            <td>Googol</td>
+            <td><a href="https://googol88.github.io" target="_blank">https://googol88.github.io</a></td>
+          </tr>-->
+        </tbody>
+      </table>
+    </div>
+    <script src="js-to-css.js"></script>
+  </body>
+</html>

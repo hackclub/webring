@@ -1,0 +1,140 @@
+@font-face {
+  font-family: 'Phantom Sans';
+  src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff')
+      format('woff'),
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff2')
+      format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Phantom Sans';
+  src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff')
+      format('woff'),
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff2')
+      format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Phantom Sans';
+  src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff')
+      format('woff'),
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff2')
+      format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --darker: #121217;
+  --dark: #17171d;
+  --darkless: #252429;
+  --black: #1f2d3d;
+  --steel: #273444;
+  --slate: #3c4858;
+  --muted: #8492a6;
+  --smoke: #e0e6ed;
+  --snow: #f9fafc;
+  --white: #ffffff;
+  --red: #ec3750;
+  --orange: #ff8c37;
+  --yellow: #f1c40f;
+  --green: #33d6a6;
+  --cyan: #5bc0de;
+  --blue: #338eda;
+  --twitter: #1da1f2;
+  --facebook: #3b5998;
+  --instagram: #e1306c;
+  --text: #1f2d3d;
+  --background: #ffffff;
+  --elevated: #ffffff;
+  --sheet: #f9fafc;
+  --sunken: #e0e6ed;
+  --border: #e0e6ed;
+  --placeholder: #8492a6;
+  --secondary: #3c4858;
+  --primary: #ec3750;
+  --accent: #338eda;
+}
+
+body {
+  font-family: 'Phantom Sans', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/*@media screen and (min-width: 32em) {
+  container {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    max-width: 980px;
+  }
+}
+
+.container {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+  max-width: container;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1024px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}*/
+
+body {
+  color: var(--black);
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  margin-bottom: .5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.title {
+  color: var(--red);
+  font-size: 48px;
+}
+
+/*.logo {
+  background-image: url("https://assets.hackclub.com/flag-orpheus-top.svg");
+  background-position-x: left;
+  background-position-y: top;
+  background-size: contain;
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 112px;
+  transition-duration: 0.1875s;
+  transition-timing-function: cubic-bezier(0.375, 0, 0.675, 1);
+  transition-delay: initial;
+  transition-property: transform;
+  transform-origin-x: left;
+  transform-origin-y: top;
+  transform: scale(0.875);
+  height: 56px;
+}*/
+
+.jumbotron, .container-fluid {
+  background-color: #f9fafc;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: underline;
+}
+a:hover {
+  color: var(--blue);
+}
+
+th {
+  color: var(--red);
+}
