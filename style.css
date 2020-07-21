@@ -105,24 +105,6 @@ body {
   font-size: 48px;
 }
 
-/*.logo {
-  background-image: url("https://assets.hackclub.com/flag-orpheus-top.svg");
-  background-position-x: left;
-  background-position-y: top;
-  background-size: contain;
-  cursor: pointer;
-  flex-shrink: 0;
-  width: 112px;
-  transition-duration: 0.1875s;
-  transition-timing-function: cubic-bezier(0.375, 0, 0.675, 1);
-  transition-delay: initial;
-  transition-property: transform;
-  transform-origin-x: left;
-  transform-origin-y: top;
-  transform: scale(0.875);
-  height: 56px;
-}*/
-
 .jumbotron, .container-fluid {
   background-color: #f9fafc;
 }
@@ -133,6 +115,10 @@ a {
 }
 a:hover {
   color: var(--blue);
+}
+
+pre {
+  background-color: var(--smoke);
 }
 
 th {
