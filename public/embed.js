@@ -38,7 +38,7 @@ request.send();
 request.onload = function() {
   const webring = request.response;
 
-  var siteUrl = document.location.href.toLowerCase();
+  var siteHost = window.location.hostname.toLowerCase();
   var siteIndex = 0;
   var previousIndex = 0;
   var nextIndex = 0;
@@ -48,20 +48,19 @@ request.onload = function() {
 
 
   for (var i=0; i<webring.length; i++) {
-    if (siteUrl ==  webring[i].url) {
-      console.log("Same URL");
+    if (siteHost ==  webring[i].location.hostname.toLowerCase()) {
       siteIndex = i;
       break;
     }
-
-    previousIndex = siteIndex-1;
-    if (previousIndex == -1)
-      previousIndex = webring.length-1;
-    previousBtn.href = webring[previousIndex].url;
-
-    nextIndex = siteIndex+1;
-    if (nextIndex == webring.length)
-      nextIndex = 0;
-    nextBtn.href = webring[previousIndex].url;
   }
+
+  previousIndex = siteIndex-1;
+  if (previousIndex == -1)
+    previousIndex = webring.length-1;
+  previousBtn.href = webring[previousIndex].url;
+
+  nextIndex = siteIndex+1;
+  if (nextIndex == webring.length)
+    nextIndex = 0;
+  nextBtn.href = webring[nextIndex].url;
 }
