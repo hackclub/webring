@@ -38,7 +38,7 @@ request.send();
 request.onload = function() {
   const webring = request.response;
 
-  var siteHost = window.location.hostname.toLowerCase();
+  var siteHost = document.location.href.toLowerCase();
   var siteIndex = 0;
   var previousIndex = 0;
   var nextIndex = 0;
@@ -48,7 +48,7 @@ request.onload = function() {
 
 
   for (var i=0; i<webring.length; i++) {
-    if (siteHost ==  webring[i].location.hostname.toLowerCase()) {
+    if (siteHost ==  webring[i].url.toLowerCase()) {
       siteIndex = i;
       break;
     }
