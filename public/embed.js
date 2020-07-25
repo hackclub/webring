@@ -29,6 +29,13 @@ style.innerHTML = `
 `;
 wrapper.appendChild(style);
 
+var siteHost = document.location.href.toLowerCase();
+var siteIndex = 0;
+var previousIndex = 0;
+var nextIndex = 0;
+
+var previousBtn = document.getElementById("previousBtn");
+var nextBtn = document.getElementById("nextBtn");
 
 let requestURL = "https://googol88.github.io/webring/public/members.json";
 let request = new XMLHttpRequest();
@@ -37,15 +44,6 @@ request.responseType = 'json';
 request.send();
 request.onload = function() {
   const webring = request.response;
-
-  var siteHost = document.location.href.toLowerCase();
-  var siteIndex = 0;
-  var previousIndex = 0;
-  var nextIndex = 0;
-
-  var previousBtn = document.getElementById("previousBtn");
-  var nextBtn = document.getElementById("nextBtn");
-
 
   for (var i=0; i<webring.length; i++) {
     if (siteHost ==  webring[i].url.toLowerCase()) {
