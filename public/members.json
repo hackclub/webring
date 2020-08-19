@@ -11,6 +11,10 @@
     "member": "Sam Poder",
     "url": "https://sampoder.com/"
   },
+    {
+    "member": "Winston Iskandar",
+    "url": "https://winstoniskandar.com/"
+  },
   {
     "member": "Rafael Cenzano",
     "url": "https://rafaelcenzano.com/"
@@ -23,8 +27,4 @@
     "member": "ongzz",
     "url": "https://fogeinator.github.io/"
   },
-  {
-    "member": "Winston Iskandar",
-    "url": "https://winstoniskandar.com/"
-  }
 ]
