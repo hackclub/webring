@@ -16,7 +16,7 @@ request.onload = function() {
     row.appendChild(memberCell);
 
     var url = webring[i].url;
-    var urlShort = url.replace(/(^\w+:|^)\/\//, '').split("?")[0];
+    var urlShort = new URL(url).hostname;
     var urlCell = document.createElement("td");
     urlCell.innerHTML = "<a href='"+url+"' target='_blank'>"+urlShort+"</a>";
     row.appendChild(urlCell);

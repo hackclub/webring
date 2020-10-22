@@ -5,7 +5,7 @@
   style.innerHTML = ".webring-anchor{font-size:24px;color:rgba(132,146,166,.8);text-decoration:none;transition:color .5s}.webring-anchor:hover{color:#8492a6;text-decoration:none}.webring-logo{background-image:url(https://assets.hackclub.com/icon-rounded.svg);background-repeat:no-repeat;background-position:top left;background-size:contain;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;display:inline-block;width:36px;height:36px;margin:0 4px;vertical-align:middle}";
   wrapper.appendChild(style);
 
-  var siteHost = document.location.href.toLowerCase();
+  var siteHost = document.location.hostname.toLowerCase();
   var siteIndex = 0;
   var previousIndex = 0;
   var nextIndex = 0;
@@ -22,7 +22,7 @@
     const webring = request.response;
 
     for (var i=0; i<webring.length; i++) {
-      if (siteHost ==  webring[i].url.toLowerCase()) {
+      if (siteHost ==  new URL(webring[i].url).hostname) {
         siteIndex = i;
         break;
       }
