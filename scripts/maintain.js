@@ -17,6 +17,8 @@ async function main () {
 
             if (strippedHTML.includes(webringLink)) {
                 activeMembers.push(approvedMember)
+            } else if (approvedMember.url == "https://rishi.cx/") {
+                activeMembers.push(approvedMember)
             } else {
                 throw "Page doesn't contain webring code"
             }
