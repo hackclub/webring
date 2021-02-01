@@ -2,8 +2,6 @@
 
 ## Join the Webring
 
-Join the webring by submitting a !
-
 Insert the following HTML code into your website.
 
 ```html
@@ -15,6 +13,9 @@ Insert the following HTML code into your website.
 </div>
 ```
 
-Next, add your name (or nickname!) and URL where you placed the above code snippet at the file members.json. Open a pull request ([tutorial here](#making-a-pull-request)!) and we'll review it within the next 48 hours. Cheers!
+Next, add your name (or nickname!) and URL where you placed the above code snippet at the file [members.json](members.json). 
+
+
+Open a pull request ([tutorial here](#making-a-pull-request)!) and we'll review it within the next 48 hours. Cheers!
 
 
