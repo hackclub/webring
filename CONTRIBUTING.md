@@ -15,7 +15,11 @@ Insert the following HTML code into your website.
 
 Next, add your name (or nickname!) and URL where you placed the above code snippet at the file [members.json](members.json). 
 
+```javascript
+{
+        "member": "Your Name",
+        "url": "https://yourwebsite.com"
+}
+```
 
-Open a pull request ([tutorial here](#making-a-pull-request)!) and we'll review it within the next 48 hours. Cheers!
-
-
+Open a pull request ([tutorial here](https://github.com/hackclub/hackclub/blob/main/CONTRIBUTING.md#making-a-pull-request)!) and we'll review it within the next 48 hours. Cheers!
