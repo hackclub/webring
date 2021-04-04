@@ -1,19 +1,21 @@
-const fetch = require('node-fetch')
-const { readFileSync, writeFileSync } = require('fs')
+const fetch = require("node-fetch")
+const { readFileSync, writeFileSync } = require("fs")
 
-const members = JSON.parse(readFileSync('../members.json', { encoding: "utf8" }))
+const members = JSON.parse(
+    readFileSync("../members.json", { encoding: "utf8" })
+)
 let activeMembers = []
 
 const webringLink = "https://webring.hackclub.com/"
 
-async function main () {
+async function main() {
     for (const approvedMember of members) {
         try {
             const response = await fetch(approvedMember.url)
             if (!response.ok) throw "Unreachable page"
 
             const data = await response.text()
-            const strippedHTML = data.replace(/\s/g, '')
+            const strippedHTML = data.replace(/\s/g, "")
 
             if (strippedHTML.includes(webringLink)) {
                 activeMembers.push(approvedMember)
@@ -28,7 +30,7 @@ async function main () {
         }
     }
 
-    writeFileSync('../public/members.json', JSON.stringify(activeMembers))
+    writeFileSync("../public/members.json", JSON.stringify(activeMembers))
 }
 
 main()
