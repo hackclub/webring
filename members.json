@@ -45,7 +45,8 @@
     },
     {
         "member": "Rishi Kothari",
-        "url": "https://rishi.cx/"
+        "url": "https://rishi.cx/",
+        "bypass": true
     },
     {
         "member": "Khushraj Rathod",
