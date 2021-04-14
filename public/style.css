@@ -162,3 +162,56 @@ th {
     margin: 0 4px;
     vertical-align: middle;
 }
+
+.flag {
+    background-image: url(https://assets.hackclub.com/flag-orpheus-top.svg);
+    background-repeat: no-repeat;
+    -webkit-background-position: top left;
+    background-position: top left;
+    -webkit-background-size: contain;
+    background-size: contain;
+    cursor: pointer;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 112px;
+    height: 48px;
+    -webkit-transition: 0.1875s cubic-bezier(0.375, 0, 0.675, 1) -webkit-transform;
+    transition: 0.1875s cubic-bezier(0.375, 0, 0.675, 1) transform;
+    transform-origin: top left;
+}
+
+@media (min-width: 48em) {
+    .flag {
+        width:172px;
+        height: 64px;
+    }
+}
+
+.flag:hover,.flag:focus {
+    -webkit-animation: animation-flag 0.5s linear infinite alternate;
+    animation: animation-flag 0.5s linear infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flag {
+        -webkit-animation: none!important;
+        animation: none!important;
+    }
+}
+
+@-webkit-keyframes animation-flag {
+    from {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(-5deg);
+        -moz-transform: rotate(-5deg);
+        -ms-transform: rotate(-5deg);
+        transform: rotate(-5deg);
+    }
+}
