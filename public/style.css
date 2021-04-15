@@ -165,6 +165,12 @@ th {
 
 .flag {
     background-image: url(https://assets.hackclub.com/flag-orpheus-top.svg);
+    position: absolute; 
+    top: 0; 
+    left: 10px; 
+    border: 0; 
+    width: 112px; 
+    z-index: 999;
     background-repeat: no-repeat;
     -webkit-background-position: top left;
     background-position: top left;
