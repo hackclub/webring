@@ -2,7 +2,7 @@ name: Maintain Webring
 
 on:
   push:
-    branches: [ master, actions ]
+    branches: [ master ]
   schedule:
     - cron: 0/15 * * * *
 

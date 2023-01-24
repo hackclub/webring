@@ -3,11 +3,13 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
+
     "scripts": {
         "maintain": "node maintain.js"
     },
     "dependencies": {
-        "node-fetch": "^2.6.1",
-        "puppeteer": "^8.0.0"
-    }
+        "node-fetch": "^3.3.0",
+        "puppeteer": "^19.6.0"
+    },
+    "type": "module"
 }
