@@ -3,12 +3,12 @@
         {
             "source": "/",
             "destination": "/index.html",
-            "statusCode": 200
+            "permanent": false
         }
     ],
     "headers": [
         {
-            "source": "/",
+            "source": "/(.*)",
             "headers": {
                 "Access-Control-Allow-Origin": "*"
             }
