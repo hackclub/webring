@@ -6,6 +6,12 @@
             "permanent": false
         }
     ],
+    "rewrites": [
+        {
+            "source": "/public/embed.min.js",
+            "destination": "/embed.min.js"
+        }
+    ],
     "headers": [
         {
             "source": "/(.*)",
