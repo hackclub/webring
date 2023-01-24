@@ -9,8 +9,7 @@
     "rewrites": [
         {
             "source": "/public/embed.min.js",
-            "destination": "/embed.min.js",
-            "permanent": false
+            "destination": "/embed.min.js"
         }
     ],
     "headers": [
