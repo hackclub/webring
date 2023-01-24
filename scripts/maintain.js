@@ -1,11 +1,11 @@
-const fetch = require("node-fetch")
-const { readFileSync, writeFileSync } = require("fs")
-
-const puppeteer = require("puppeteer")
+import fetch from "node-fetch"
+import { readFileSync, writeFileSync } from "fs"
+import puppeteer from "puppeteer"
 
 const members = JSON.parse(
     readFileSync("../members.json", { encoding: "utf8" })
 )
+
 let activeMembers = []
 
 const webringLink = "https://webring.hackclub.com/"
@@ -27,6 +27,13 @@ async function checkWithBrowser(url) {
 }
 
 async function main() {
+    // sort the members by their name alphabetically
+    members.sort((a, b) => {
+        if (a.member < b.member) return -1
+        if (a.member > b.member) return 1
+        return 0
+    })
+
     for (const approvedMember of members) {
         console.debug(`Trying ${approvedMember.member}`)
         try {
