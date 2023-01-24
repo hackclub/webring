@@ -1,0 +1,20 @@
+{
+    "redirects": [
+        {
+            "source": "/",
+            "destination": "/index.html",
+            "permanent": false
+        }
+    ],
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                }
+            ]
+        }
+    ]
+}
