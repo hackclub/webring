@@ -1,0 +1,17 @@
+{
+    "redirects": [
+        {
+            "source": "/",
+            "destination": "/index.html",
+            "statusCode": 200
+        }
+    ],
+    "headers": [
+        {
+            "source": "/",
+            "headers": {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }
+    ]
+}
