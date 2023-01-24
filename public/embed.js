@@ -14,7 +14,7 @@
     var previousBtn = document.getElementById("previousBtn")
     var nextBtn = document.getElementById("nextBtn")
 
-    let requestURL = "https://webring.hackclub.com/public/members.json"
+    let requestURL = "https://webring.hackclub.com/members.json"
     let request = new XMLHttpRequest()
     request.open("GET", requestURL)
     request.responseType = "json"

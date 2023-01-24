@@ -1,4 +1,4 @@
-let requestURL = "public/members.json";
+let requestURL = "./members.json";
 let request = new XMLHttpRequest();
 request.open('GET', requestURL);
 request.responseType = 'json';
