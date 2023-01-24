@@ -1,11 +1,4 @@
 {
-    "redirects": [
-        {
-            "source": "/",
-            "destination": "/index.html",
-            "permanent": false
-        }
-    ],
     "headers": [
         {
             "source": "/(.*)",
