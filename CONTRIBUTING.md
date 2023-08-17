@@ -18,10 +18,8 @@ Next, add your name (or nickname!) and URL where you placed the above code snipp
 ```javascript
 {
         "member": "Your Name",
-        "url": "https://yourwebsite.com/"
+        "url": "https://yourwebsite.com"
 }
 ```
-
-**Make sure to add a slash at the end of your URL!**
 
 Open a pull request ([tutorial here](https://github.com/hackclub/hackclub/blob/main/CONTRIBUTING.md#making-a-pull-request)!) and we'll review it within the next 48 hours. Cheers!
