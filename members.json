@@ -96,7 +96,7 @@
         "url": "https://epiccoders.cf/"
     },
     {
-        "member": "Reese (reesericci) Armstrong", 
+        "member": "Reese (reesericci) Armstrong",
         "url": "https://reeseric.ci/"
     },
     {
@@ -113,7 +113,9 @@
     },
     {
         "member": "iUnstable0",
-        "url": "https://iunstable0.com/"
+        "url": "https://iunstable0.com/",
+        "bypass": "true",
+        "why-bypassed": "I'm using NextJS so I implemented the webring differently and for some reason the maintenance script doesn't detect the webring"
     },
     {
         "member": "Zeyu (Peter) Yao",
