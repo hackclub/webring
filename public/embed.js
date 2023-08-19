@@ -11,7 +11,9 @@
     var previousIndex = 0
     var nextIndex = 0
 
-    if ((document.getElementById("previousBtn") === null) || (document.getElementById("nextBtn") === null)) return;
+    if ((document.getElementById("previousBtn") === null) || (document.getElementById("nextBtn") === null)) {
+        console.error("Either the Previous Button (previousBtn) or the Next Button (nextBtn) does not exist or is not named correctly");
+        return;
     var previousBtn = document.getElementById("previousBtn")
     var nextBtn = document.getElementById("nextBtn")
 
