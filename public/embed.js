@@ -11,6 +11,7 @@
     var previousIndex = 0
     var nextIndex = 0
 
+    if ((document.getElementById("previousBtn") === null) || (document.getElementById("nextBtn") === null)) return;
     var previousBtn = document.getElementById("previousBtn")
     var nextBtn = document.getElementById("nextBtn")
 
