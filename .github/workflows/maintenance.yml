@@ -16,21 +16,27 @@ jobs:
 
         steps:
             - uses: actions/checkout@v3
-            - uses: pnpm/action-setup@v2
               with:
-                  version: 8
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 18
-                  cache: "pnpm"
+                  ref: main
+                  token: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Run webring maintainance
-              run: |
-                  pnpm install
-                  pnpm maintain
+            # - uses: pnpm/action-setup@v2
+            #   with:
+            #       version: 8
+
+            # - uses: actions/setup-node@v3
+            #   with:
+            #       node-version: 18
+            #       cache: "pnpm"
+
+            # - name: Run webring maintainance
+            #   run: |
+            #       pnpm install
+            #       pnpm maintain
 
             - name: Commit files
               run: |
+                  echo "ddd" >> README.md
                   git config --local user.email "iunstable0@gmail.com"
                   git config --local user.name "iUnstable0"
                   git checkout -b auto-maintain-branch
