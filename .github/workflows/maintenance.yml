@@ -50,8 +50,7 @@ jobs:
             #       token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Create Pull Request
-              id: create-pr
-              uses: peter-evans/create-pull-request@v3
+              uses: peter-evans/create-pull-request@v5
               with:
                   title: "Auto-update file"
                   branch: auto-maintain-branch
@@ -60,7 +59,7 @@ jobs:
 
             - name: Automerge Pull Request
               uses: pascalgn/automerge-action@v0.13.1
-              with:
+              env:
                   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
                   MERGE_LABELS: automerge,!work in progress
                   MERGE_COMMIT_MESSAGE: "Automatic merge of successful checks"
