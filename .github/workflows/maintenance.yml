@@ -42,7 +42,6 @@ jobs:
                   echo "bye" >> README.md
                   git add .
                   git commit -m "Maintain Webring"
-                  git pull origin auto-maintain-branch
                   git push origin auto-maintain-branch
 
             # - name: Create Pull Request
