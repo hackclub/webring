@@ -4,8 +4,8 @@ on:
     push:
         branches:
             - main
-    # schedule:
-    #     - cron: 0/15 * * * *
+    schedule:
+        - cron: 0/15 * * * *
 
 env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -36,8 +36,8 @@ jobs:
 
             - name: Commit files
               run: |
-                  git config --local user.email "iunstable0@gmail.com"
-                  git config --local user.name "iUnstable0"
+                  git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git config --local user.name "github-actions[bot]"
                   git checkout -b auto-maintain-branch
                   git add .
                   git commit -m "Maintain Webring"
