@@ -44,6 +44,12 @@ jobs:
                   git commit -m "Maintain Webring"
                   git push origin auto-maintain-branch
 
+            - name: Merge
+              run: |
+                  gh pr create --title "Maintain Webring" --body "Maintain Webring" --base main --head auto-maintain-branch
+                  gh pr merge --auto --squash --merge auto-maintain-branch
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             # - name: Create Pull Request
             #   uses: peter-evans/create-pull-request@v5
             #   with:
