@@ -39,7 +39,7 @@ jobs:
                   git config --local user.email "iunstable0@gmail.com"
                   git config --local user.name "iUnstable0"
                   git checkout -b auto-maintain-branch
-                  echo "bye" >> README.md
+                  echo "poop" >> README.md
                   git add .
                   git commit -m "Maintain Webring"
                   git push origin auto-maintain-branch
