@@ -32,7 +32,7 @@ jobs:
             - name: Commit files
               run: |
                   git config --local user.email "iunstable0@gmail.com"
-                  git config --local user.name "github-actions[bot]"
+                  git config --local user.name "iUnstable0"
                   git checkout -b auto-maintain-branch
                   git add .
                   git commit -m "Maintain Webring"
