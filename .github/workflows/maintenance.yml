@@ -36,7 +36,7 @@ jobs:
 
             - name: Commit files
               run: |
-                  echo "ddd" >> README.md
+                  echo "das" >> README.md
                   git config --local user.email "iunstable0@gmail.com"
                   git config --local user.name "iUnstable0"
                   git checkout -b auto-maintain-branch
