@@ -47,7 +47,7 @@ jobs:
             - name: Merge
               run: |
                   gh pr create --title "Maintain Webring" --body "Maintain Webring" --base main --head auto-maintain-branch
-                  gh pr merge --auto --squash --merge auto-maintain-branch
+                  gh pr merge auto-maintain-branch --squash --auto --delete-branch --subject "Maintain Webring" --body "Maintain Webring"
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             # - name: Create Pull Request
