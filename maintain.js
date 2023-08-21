@@ -39,87 +39,87 @@ async function main() {
 
     let counter = 1
 
-    for (const approvedMember of members) {
-        console.debug(
-            `(${chalk.blue(
-                `${counter}/${members.length}`
-            )}) Trying ${chalk.bold(`${approvedMember.member}`)}`
-        )
+    // for (const approvedMember of members) {
+    //     console.debug(
+    //         `(${chalk.blue(
+    //             `${counter}/${members.length}`
+    //         )}) Trying ${chalk.bold(`${approvedMember.member}`)}`
+    //     )
 
-        counter += 1
+    //     counter += 1
 
-        try {
-            const response = await fetch(approvedMember.url)
-            if (!response.ok) throw "Unreachable page"
+    //     try {
+    //         const response = await fetch(approvedMember.url)
+    //         if (!response.ok) throw "Unreachable page"
 
-            if (approvedMember.bypass) {
-                console.log(
-                    chalk.green(
-                        ` - ${chalk.bold(
-                            `${approvedMember.member}'s`
-                        )} page is marked with \`"bypass": true\``
-                    )
-                )
+    //         if (approvedMember.bypass) {
+    //             console.log(
+    //                 chalk.green(
+    //                     ` - ${chalk.bold(
+    //                         `${approvedMember.member}'s`
+    //                     )} page is marked with \`"bypass": true\``
+    //                 )
+    //             )
 
-                activeMembers.push(approvedMember)
+    //             activeMembers.push(approvedMember)
 
-                continue
-            }
+    //             continue
+    //         }
 
-            const data = await response.text()
-            let strippedHTML = data.replace(/\s/g, "")
+    //         const data = await response.text()
+    //         let strippedHTML = data.replace(/\s/g, "")
 
-            strippedHTML = strippedHTML.replace(/<!--[\s\S]*?-->/g, "")
+    //         strippedHTML = strippedHTML.replace(/<!--[\s\S]*?-->/g, "")
 
-            if (strippedHTML.includes(webringLink)) {
-                console.log(
-                    chalk.green(
-                        ` - ${chalk.bold(
-                            `${approvedMember.member}'s`
-                        )} page is active`
-                    )
-                )
+    //         if (strippedHTML.includes(webringLink)) {
+    //             console.log(
+    //                 chalk.green(
+    //                     ` - ${chalk.bold(
+    //                         `${approvedMember.member}'s`
+    //                     )} page is active`
+    //                 )
+    //             )
 
-                activeMembers.push(approvedMember)
-            } else {
-                // some sites might use plain react, which means we need to
-                // actually open the page in a browser and then search the
-                // rendered HTML from the browser
+    //             activeMembers.push(approvedMember)
+    //         } else {
+    //             // some sites might use plain react, which means we need to
+    //             // actually open the page in a browser and then search the
+    //             // rendered HTML from the browser
 
-                console.warn(
-                    chalk.yellow(
-                        ` - ${chalk.bold(
-                            `${approvedMember.member}'s`
-                        )} page didn't contain the code in the HTML, but let's render it in the browser to be sure it's not there.`
-                    )
-                )
+    //             console.warn(
+    //                 chalk.yellow(
+    //                     ` - ${chalk.bold(
+    //                         `${approvedMember.member}'s`
+    //                     )} page didn't contain the code in the HTML, but let's render it in the browser to be sure it's not there.`
+    //                 )
+    //             )
 
-                if (await checkWithBrowser(approvedMember.url)) {
-                    console.log(
-                        chalk.green(
-                            ` - ${chalk.bold(
-                                `${approvedMember.member}'s`
-                            )} page is active`
-                        )
-                    )
+    //             if (await checkWithBrowser(approvedMember.url)) {
+    //                 console.log(
+    //                     chalk.green(
+    //                         ` - ${chalk.bold(
+    //                             `${approvedMember.member}'s`
+    //                         )} page is active`
+    //                     )
+    //                 )
 
-                    activeMembers.push(approvedMember)
-                } else {
-                    throw "Page doesn't contain webring code"
-                }
-            }
-        } catch (e) {
-            console.error(
-                chalk.red(
-                    ` - ${chalk.bold(
-                        `${approvedMember.member}`
-                    )} was rejected. Reason:`
-                )
-            )
+    //                 activeMembers.push(approvedMember)
+    //             } else {
+    //                 throw "Page doesn't contain webring code"
+    //             }
+    //         }
+    //     } catch (e) {
+    //         console.error(
+    //             chalk.red(
+    //                 ` - ${chalk.bold(
+    //                     `${approvedMember.member}`
+    //                 )} was rejected. Reason:`
+    //             )
+    //         )
 
-            console.error(chalk.red(`   - ${e}`))
-        }
-    }
+    //         console.error(chalk.red(`   - ${e}`))
+    //     }
+    // }
 
     writeFileSync("public/members.json", JSON.stringify(activeMembers))
 }
