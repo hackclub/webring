@@ -4,9 +4,7 @@ import puppeteer from "puppeteer"
 
 import { readFileSync, writeFileSync } from "fs"
 
-const members = JSON.parse(
-    readFileSync("../members.json", { encoding: "utf8" })
-)
+const members = JSON.parse(readFileSync("members.json", { encoding: "utf8" }))
 
 let activeMembers = []
 
@@ -123,7 +121,7 @@ async function main() {
         }
     }
 
-    writeFileSync("../public/members.json", JSON.stringify(activeMembers))
+    writeFileSync("public/members.json", JSON.stringify(activeMembers))
 }
 
 main()

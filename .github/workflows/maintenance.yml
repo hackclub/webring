@@ -25,7 +25,6 @@ jobs:
 
             - name: Run webring maintainance
               run: |
-                  cd scripts
                   pnpm install
                   pnpm maintain
 
