@@ -2,7 +2,8 @@ name: Maintain Webring
 
 on:
     push:
-        branches: [main]
+        branches:
+            - main
     # schedule:
     #     - cron: 0/15 * * * *
 
@@ -32,15 +33,29 @@ jobs:
               run: |
                   git config --local user.email "iunstable0@gmail.com"
                   git config --local user.name "github-actions[bot]"
-                  git commit -m "Maintain Webring" -a || true
+                  git checkout -b auto-maintain-branch
+                  git add .
+                  git commit -m "Maintain Webring"
+                  git push origin auto-maintain-branch
+
+            # - name: Create Pull Request
+            #   uses: peter-evans/create-pull-request@v5
+            #   with:
+            #       token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Create Pull Request
-              uses: peter-evans/create-pull-request@v5
+              id: create-pr
+              uses: peter-evans/create-pull-request@v3
               with:
+                  title: "Auto-update file"
+                  branch: auto-maintain-branch
+                  base: main
                   token: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Merge Pull Request
-              uses: "pascalgn/automerge-action@v0.15.6"
-              env:
+            - name: Automerge Pull Request
+              uses: pascalgn/automerge-action@v0.13.1
+              with:
                   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-                  PULL_REQUEST: ${{ steps.create-pr.outputs.pull-request-number }}
+                  MERGE_LABELS: automerge,!work in progress
+                  MERGE_COMMIT_MESSAGE: "Automatic merge of successful checks"
+                  MERGE_METHOD: squash # or use merge or rebase
