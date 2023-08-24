@@ -10,6 +10,9 @@ let activeMembers = []
 
 const webringLink = "https://webring.hackclub.com"
 
+// This function will render the page in a browser and then check if the
+// webring link is present in the rendered HTML with stripped out comments
+
 async function checkWithBrowser(url, webringLink) {
     const browser = await puppeteer.launch({ headless: "new" })
     const page = await browser.newPage()
