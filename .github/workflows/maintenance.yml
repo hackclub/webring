@@ -1,38 +1,51 @@
 name: Maintain Webring
 
 on:
-  push:
-    branches: [ master ]
-  schedule:
-    - cron: 0/15 * * * *
+    push:
+        branches:
+            - main
+    schedule:
+        - cron: 0/15 * * * *
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 18
+    build:
+        runs-on: ubuntu-latest
 
-    - name: Run webring maintainance
-      run: |
-        cd scripts
-        yarn
-        yarn maintain
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  ref: main
+                  token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Commit files
-      run: |
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git commit -m "Maintain Webring" -a || true
-   
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+            - uses: pnpm/action-setup@v2
+              with:
+                  version: 8
+
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+                  cache: "pnpm"
+
+            - name: Run webring maintainance
+              run: |
+                  pnpm install
+                  pnpm maintain
+
+            - name: Commit files
+              run: |
+                  git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git config --local user.name "github-actions[bot]"
+                  git checkout -b auto-maintain-branch
+                  git add .
+                  git commit -m "Maintain Webring"
+                  git push origin auto-maintain-branch
+
+            - name: Merge
+              run: |
+                  gh pr create --title "Maintain Webring" --body "Maintain Webring" --base main --head auto-maintain-branch
+                  gh pr merge auto-maintain-branch --squash --auto --delete-branch --subject "Maintain Webring" --body "Maintain Webring"
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
