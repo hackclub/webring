@@ -1,11 +1,13 @@
 name: Maintain Webring
 
-on:
-    push:
-        branches:
-            - main
-    schedule:
-        - cron: 0/15 * * * *
+on: workflow_dispatch 
+
+# on:
+#     push:
+#         branches:
+#             - main
+#     schedule:
+#         - cron: 0/15 * * * *
 
 env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
