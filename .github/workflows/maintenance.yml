@@ -39,7 +39,7 @@ jobs:
               run: |
                 git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
                 git config --local user.name "github-actions[bot]"
-                git branch -D auto-maintain-branch
+                git push origin --delete auto-maintain-branch
                 git checkout -b auto-maintain-branch
                 if git diff-index --quiet HEAD --; then
                   echo "No changes to commit."
