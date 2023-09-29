@@ -42,6 +42,7 @@ jobs:
                   git checkout -b auto-maintain-branch
                   git add .
                   git commit -m "Maintain Webring"
+                  git pull origin main  # Pull the latest changes from main
                   git push origin auto-maintain-branch
 
             - name: Merge
