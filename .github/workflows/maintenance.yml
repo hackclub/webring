@@ -37,13 +37,17 @@ jobs:
 
             - name: Commit files
               run: |
-                  git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                  git config --local user.name "github-actions[bot]"
-                  git checkout -b auto-maintain-branch
-                  git add .
+                git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                git config --local user.name "github-actions[bot]"
+                git checkout -b auto-maintain-branch
+                git add .
+                if git diff-index --quiet HEAD --; then
+                  echo "No changes to commit."
+                else
                   git commit -m "Maintain Webring"
-                  git pull origin main  # Pull the latest changes from main
+                  git pull origin main
                   git push origin auto-maintain-branch
+                fi
 
             - name: Merge
               run: |
