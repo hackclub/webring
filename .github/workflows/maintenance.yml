@@ -45,7 +45,8 @@ jobs:
                   echo "No changes to commit."
                 else
                   git commit -m "Maintain Webring"
-                  git pull origin main
+                  git fetch origin main
+                  git rebase origin/main
                   git push origin auto-maintain-branch
                   echo "Changes were committed."
                   echo "::set-env name=CHANGES_COMMITTED::true"  # Set an environment variable to indicate changes were committed
