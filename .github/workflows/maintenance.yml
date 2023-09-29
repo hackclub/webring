@@ -43,16 +43,19 @@ jobs:
                 git add .
                 if git diff-index --quiet HEAD --; then
                   echo "No changes to commit."
-                  exit 0
                 else
                   git commit -m "Maintain Webring"
                   git pull origin main
                   git push origin auto-maintain-branch
+                  echo "Changes were committed."
+                  echo "::set-env name=CHANGES_COMMITTED::true"  # Set an environment variable to indicate changes were committed
                 fi
-
+            
             - name: Merge
+              if: env.CHANGES_COMMITTED == 'true'  # Checks if it should run if CHANGES_COMMITTED environment variable is 'true'
               run: |
-                  gh pr create --title "Maintain Webring" --body "Maintain Webring" --base main --head auto-maintain-branch
-                  gh pr merge auto-maintain-branch --squash --auto --delete-branch --subject "Maintain Webring" --body "Maintain Webring"
+                gh pr create --title "Maintain Webring" --body "Maintain Webring" --base main --head auto-maintain-branch
+                gh pr merge auto-maintain-branch --squash --auto --delete-branch --subject "Maintain Webring" --body "Maintain Webring"
+
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
