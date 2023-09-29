@@ -39,18 +39,22 @@ jobs:
               run: |
                 git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
                 git config --local user.name "github-actions[bot]"
-                git push origin --delete --force auto-maintain-branch
-                git checkout -b auto-maintain-branch
-                if git diff-index --quiet HEAD --; then
-                  echo "No changes to commit."
+                if [ "$count" -eq 0 ]; then
+                    git push origin --delete --force auto-maintain-branch
                 else
-                  git add .
-                  git commit -m "Maintain Webring"
-                  git push origin auto-maintain-branch
-                  echo "Changes were committed."
-                  gh pr create --title "Maintain Webring" --body "Maintain Webring" --base main --head auto-maintain-branch
-                  gh pr merge auto-maintain-branch --squash --auto --delete-branch --subject "Maintain Webring" --body "Maintain Webring"
+                    git checkout -b auto-maintain-branch
+                    if git diff-index --quiet HEAD --; then
+                      echo "No changes to commit."
+                    else
+                      git add .
+                      git commit -m "Maintain Webring"
+                      git push origin auto-maintain-branch
+                      echo "Changes were committed."
+                      gh pr create --title "Maintain Webring" --body "Maintain Webring" --base main --head auto-maintain-branch
+                      gh pr merge auto-maintain-branch --squash --auto --delete-branch --subject "Maintain Webring" --body "Maintain Webring"
+                    fi
                 fi
-            
+                
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
