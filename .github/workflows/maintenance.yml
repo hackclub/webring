@@ -1,61 +1,61 @@
 name: Maintain Webring
-
-on:
-    push:
-        branches:
-            - main
-    schedule:
-        - cron: 0/15 * * * *
-    workflow_dispatch:
-
+'on':
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: 0/15 * * * *
+  workflow_dispatch: null
 env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: main
+          token: '${{ secrets.GITHUB_TOKEN }}'
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: Run webring maintainance
+        run: |
+          pnpm install
+          pnpm maintain
+      - name: Check if remote exists
+        run: |
+          output=$(git ls-remote --heads origin refs/heads/auto-maintain-branch)
+          if [ -z "$output" ]; then
+            echo "Branch does not exists"
+          else
+            echo "Deleting the branch"
+            git push origin --delete --force auto-maintain-branch #Deletes the branch if it exists to avoid conflicts
+          fi
+      - name: Commit files & Merge
+        run: >
+          git config --local user.email
+          "41898282+github-actions[bot]@users.noreply.github.com"
 
-        steps:
-            - uses: actions/checkout@v3
-              with:
-                  ref: main
-                  token: ${{ secrets.GITHUB_TOKEN }}
+          git config --local user.name "github-actions[bot]"
 
-            - uses: pnpm/action-setup@v2
-              with:
-                  version: 8
+          git checkout -b auto-maintain-branch
 
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 18
-                  cache: "pnpm"
+          git add .
 
-            - name: Run webring maintainance
-              run: |
-                  pnpm install
-                  pnpm maintain
-
-            - name: Commit files & Merge
-              run: |
-                git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                git config --local user.name "github-actions[bot]"
-                count=$(git ls-remote --heads git@github.com:hackclub/webring.git refs/heads/auto-maintain-branch | wc -l)
-                if [ "$count" -eq 0 ]; then
-                    git push origin --delete --force auto-maintain-branch
-                else
-                    git checkout -b auto-maintain-branch
-                    if git diff-index --quiet HEAD --; then
-                      echo "No changes to commit."
-                    else
-                      git add .
-                      git commit -m "Maintain Webring"
-                      git push origin auto-maintain-branch
-                      echo "Changes were committed."
-                      gh pr create --title "Maintain Webring" --body "Maintain Webring" --base main --head auto-maintain-branch
-                      gh pr merge auto-maintain-branch --squash --auto --delete-branch --subject "Maintain Webring" --body "Maintain Webring"
-                    fi
-                fi
-                
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          if git diff-index --quiet HEAD --; then # checks if there are
+          differences between the branches
+            echo "No changes to commit."
+          else
+            git commit -m "Maintain Webring"
+            git push origin auto-maintain-branch
+            echo "Changes were committed."
+            gh pr create --title "Maintain Webring" --body "Maintain Webring" --base main --head auto-maintain-branch
+            gh pr merge auto-maintain-branch --squash --auto --delete-branch --subject "Maintain Webring" --body "Maintain Webring"
+          fi
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
