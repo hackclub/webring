@@ -39,6 +39,7 @@ jobs:
               run: |
                 git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
                 git config --local user.name "github-actions[bot]"
+                count=$(git ls-remote --heads git@github.com:hackclub/webring.git refs/heads/auto-maintain-branch | wc -l)
                 if [ "$count" -eq 0 ]; then
                     git push origin --delete --force auto-maintain-branch
                 else
