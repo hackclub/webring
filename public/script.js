@@ -18,7 +18,7 @@ request.onload = function() {
     var url = webring[i].url;
     var urlShort = new URL(url).hostname;
     var urlCell = document.createElement("td");
-    urlCell.innerHTML = "<a href='"+url+"' target='_blank'>"+urlShort+"</a>";
+    urlCell.innerHTML = "<a rel='noopener' target='_blank' href='"+url+"' >"+urlShort+"</a>";
     row.appendChild(urlCell);
 
     table.appendChild(row);
