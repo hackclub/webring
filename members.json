@@ -176,5 +176,11 @@
     {
         "member": "Odysseus Abraham Kirikopoulos",
         "url": "https://odysseus.obl.ong/"
+    },
+    {
+        "member": "Pandora",
+        "url": "https://p4n.dev/",
+        "bypass": "true",
+        "why-bypassed": "You have to press a button to show site content and that is why I added bypass"
     }
 ]
