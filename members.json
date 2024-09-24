@@ -4,10 +4,6 @@
         "url": "https://googol.now.sh/"
     },
     {
-        "member": "NeonGamerBot-QK",
-        "url": "https://neon.hackclub.app"
-    },
-    {
         "member": "Caleb Denio",
         "url": "https://calebdenio.me/"
     },
@@ -162,8 +158,8 @@
         "url": "https://basementcommunity.com/"
     },
     {
-        "member":"Atipat W.",
-        "url":"https://4is.me/"
+        "member": "Atipat W.",
+        "url": "https://4is.me/"
     },
     {
         "member": "Aurora",
@@ -184,5 +180,9 @@
     {
         "member": "Kokonico",
         "url": "https://kokonico.me/"
+    },
+    {
+        "member": "NeonGamerBot-QK",
+        "url": "https://neon.hackclub.app"
     },
 ]
