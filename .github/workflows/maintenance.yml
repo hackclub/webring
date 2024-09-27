@@ -25,6 +25,15 @@ jobs:
         run: |
           pnpm install
           pnpm maintain
+      - name: Check if remote exists
+        run: |
+          output=$(git ls-remote --heads origin refs/heads/auto-maintain-branch)
+          if [ -z "$output" ]; then
+            echo "Branch does not exists"
+          else
+            echo "Deleting the branch"
+            git push origin --delete --force auto-maintain-branch #Deletes the branch if it exists to avoid conflicts
+          fi
       - name: Commit files & Merge
         run: >
           git config --local user.email
@@ -32,9 +41,12 @@ jobs:
 
           git config --local user.name "github-actions[bot]"
 
+          git checkout -b auto-maintain-branch
+
           git add .
 
-          if git diff-index --quiet HEAD --; then # checks if there are differences between the branches
+          if git diff-index --quiet HEAD --; then # checks if there are
+          differences between the branches
             echo "No changes to commit."
           else
             git commit -m "Maintain Webring"
