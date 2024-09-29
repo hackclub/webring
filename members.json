@@ -194,7 +194,7 @@
     {
         "member": "viruus.zip",
         "url": "https://viruus.zip/"
-    }
+    },
     {
         "member": "Googol",
         "url": "https://googol.now.sh/"
@@ -377,5 +377,9 @@
         "member": "Kokonico",
         "url": "https://kokonico.me/"
     },
+    {
+        "member": "Arthur Beck",
+        "url": "https://averse.is-a.dev"
+    }
 ]
 
