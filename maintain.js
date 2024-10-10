@@ -14,22 +14,22 @@ const webringLink = "https://webring.hackclub.com"
 // webring link is present in the rendered HTML with stripped out comments
 
 async function checkWithBrowser(url, webringLink) {
-    const browser = await puppeteer.launch({ headless: "new" })
-    const page = await browser.newPage()
+    const browser = await puppeteer.launch({ headless: "new" });
+    const page = await browser.newPage();
 
-    await page.goto(url)
-
-    let content = await page.content()
-
-    content = content.replace(/<!--[\s\S]*?-->/g, "")
-
-    writeFileSync("test.html", content)
-
-    const containsLink = content.replace(/\s/g, "").includes(webringLink)
-
-    await browser.close()
-
-    return containsLink
+    try {
+        await page.goto(url);
+        let content = await page.content();
+        content = content.replace(/<!--[\s\S]*?-->/g, "");
+        writeFileSync("test.html", content);
+        const containsLink = content.replace(/\s/g, "").includes(webringLink);
+        return containsLink;
+    } catch (error) {
+        console.error(`Error checking URL ${url}:`, error);
+        throw error;
+    } finally {
+        await browser.close();
+    }
 }
 
 async function main() {
@@ -123,7 +123,6 @@ async function main() {
             console.error(chalk.red(`   - ${e}`))
         }
     }
-
     writeFileSync("public/members.json", JSON.stringify(activeMembers))
 }
 
