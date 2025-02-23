@@ -33,7 +33,8 @@
   },
   {
     "member": "Mahad Kalam (Skyfall)",
-    "url": "https://skyfall.dev/"
+    "url": "https://skyfall.dev/",
+    "bypass": true
   },
   {
     "member": "Vusal Ismayilov",
