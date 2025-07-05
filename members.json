@@ -84,6 +84,10 @@
     "url": "https://daamin.tech"
   },
   {
+    "member": "tgt",
+    "url": "https://incognitotgt.me"
+  },
+  {
     "member": "Hexaa",
     "url": "https://hexaa.sh"
   },
@@ -130,5 +134,9 @@
   {
     "member": "sunflowerthomas",
     "url": "sunflowerthomas.github.io"
+  },
+  {
+    "member": "FabioToh",
+    "url": "https://fabiocanavarro.vercel.app/"
   }
 ]
