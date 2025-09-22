@@ -147,8 +147,12 @@
     "member": "Hadrian udontur",
     "url": "https://hadrian.cc/"
   },
-   {
+  {
     "member": "radioblahaj",
     "url": "https://radioblahaj.com"
+  },
+  {
+    "member": "virtualfuzz",
+    "url": "https://virtualfuzz.is-a.dev"
   }
 ]
