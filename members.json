@@ -154,5 +154,9 @@
   {
     "member": "virtualfuzz",
     "url": "https://virtualfuzz.is-a.dev"
+  },
+  {
+    "member": "Arca",
+    "url": "https://arcaege.dev/"
   }
 ]
