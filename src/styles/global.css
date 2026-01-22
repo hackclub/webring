@@ -2,110 +2,103 @@
 
 /* Klima Font Faces */
 
-@font-face {
+/* @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-ultralight-web.woff2") format("woff2");
+  src: url("../fonts/klima/klima-ultralight-web.woff2") format("woff2");
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-ultralight-italic-web.woff2")
-    format("woff2");
+  src: url("../fonts/klima/klima-ultralight-italic-web.woff2") format("woff2");
   font-weight: 100;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-light-web.woff2") format("woff2");
+  src: url("../fonts/klima/klima-light-web.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-light-italic-web.woff2")
-    format("woff2");
+  src: url("../fonts/klima/klima-light-italic-web.woff2") format("woff2");
   font-weight: 300;
   font-style: italic;
-}
+} */
 
 @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-regular-web.woff2") format("woff2");
+  src: url("../fonts/klima/klima-regular-web.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-regular-italic-web.woff2")
-    format("woff2");
+  src: url("../fonts/klima/klima-regular-italic-web.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-medium-web.woff2") format("woff2");
+  src: url("../fonts/klima/klima-medium-web.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-medium-italic-web.woff2")
-    format("woff2");
+  src: url("../fonts/klima/klima-medium-italic-web.woff2") format("woff2");
   font-weight: 500;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-bold-web.woff2") format("woff2");
+  src: url("../fonts/klima/klima-bold-web.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-bold-italic-web.woff2")
-    format("woff2");
+  src: url("../fonts/klima/klima-bold-italic-web.woff2") format("woff2");
   font-weight: 700;
   font-style: italic;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-heavy-web.woff2") format("woff2");
+  src: url("../fonts/klima/klima-heavy-web.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-heavy-italic-web.woff2")
-    format("woff2");
+  src: url("../fonts/klima/klima-heavy-italic-web.woff2") format("woff2");
   font-weight: 800;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-ultra-web.woff2") format("woff2");
+  src: url("../fonts/klima/klima-ultra-web.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Klima";
-  src: url("../fonts/klima/webfonts/klima-ultra-italic-web.woff2")
-    format("woff2");
+  src: url("../fonts/klima/klima-ultra-italic-web.woff2") format("woff2");
   font-weight: 900;
   font-style: italic;
-}
+} */
 
 @theme {
   --font-sans: "Klima", system-ui, sans-serif;
