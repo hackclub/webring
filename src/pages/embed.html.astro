@@ -1,0 +1,74 @@
+---
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div class="flex items-center justify-center">
+      <a
+        href="https://webring.hackclub.com/"
+        id="previousBtn"
+        class="text-[24px] text-[#8492a6]/80 transition-colors duration-500 hover:text-[#8492a6]"
+        title="Previous"
+      >
+        ‹
+      </a>
+
+      <a
+        href="https://webring.hackclub.com/"
+        class="mx-1 inline-block h-9 w-9"
+        title="Hack Club Webring"
+      >
+        <img
+          src="https://assets.hackclub.com/icon-rounded.svg"
+          alt="Hack Club Webring"
+          class="select-none"
+        />
+      </a>
+
+      <a
+        href="https://webring.hackclub.com/"
+        id="nextBtn"
+        class="text-[24px] text-[#8492a6]/80 transition-colors duration-500 hover:text-[#8492a6]"
+        title="Next"
+      >
+        ›
+      </a>
+    </div>
+  </body>
+</html>
+
+<script>
+  type Member = {
+    member: string;
+    url: string;
+  };
+  const parentUrl = document.referrer || document.location.href;
+  const siteHost = new URL(parentUrl).hostname.toLowerCase();
+
+  const previousBtn = document.getElementById(
+    "previousBtn",
+  ) as HTMLAnchorElement;
+  const nextBtn = document.getElementById("nextBtn") as HTMLAnchorElement;
+
+  const response = await fetch("https://webring.hackclub.com/members.json");
+  const webring: Member[] = await response.json();
+
+  let siteIndex = webring.findIndex(
+    (member) => new URL(member.url).hostname.toLowerCase() === siteHost,
+  );
+
+  if (siteIndex === -1) siteIndex = 0;
+
+  const previousIndex = (siteIndex - 1 + webring.length) % webring.length;
+  const nextIndex = (siteIndex + 1) % webring.length;
+
+  previousBtn.href = webring[previousIndex].url;
+  previousBtn.target = "_parent";
+
+  nextBtn.href = webring[nextIndex].url;
+  nextBtn.target = "_parent";
+</script>

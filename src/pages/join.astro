@@ -1,0 +1,113 @@
+---
+import Layout from "../components/layout.astro";
+---
+
+<Layout>
+  <header class="mb-12 border-b-4 border-black pb-8">
+    <h1
+      class="text-6xl md:text-8xl font-bold uppercase tracking-tighter leading-none mb-4"
+    >
+      Joining The<br />
+      <span class="text-red-600">Webring</span>
+    </h1>
+  </header>
+
+  <main class="max-w-4xl">
+    <p class="text-2xl mb-12 font-medium">
+      Joining the webring is super simple! Follow these steps:
+    </p>
+
+    <div class="space-y-12 text-xl">
+      <section>
+        <h2 class="text-3xl font-bold uppercase mb-4 flex items-center gap-4">
+          <span class="w-6 h-6 bg-red-600 block shrink-0"></span>
+          1. Fork the repo
+        </h2>
+        <div class="pl-10">
+          <p class="leading-relaxed">
+            Start by forking the repository on GitHub by clicking on
+            <a
+              href="https://github.com/hackclub/webring/fork"
+              class="text-red-600 underline font-bold hover:bg-red-600 hover:text-white transition-colors"
+              >this link</a
+            >. This creates a personal copy of the webring repository under your
+            GitHub account, so you can update it freely.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-3xl font-bold uppercase mb-4 flex items-center gap-4">
+          <span class="w-6 h-6 bg-red-600 block shrink-0"></span>
+          2. Add your site
+        </h2>
+        <div class="pl-10">
+          <p class="leading-relaxed mb-4">
+            Next, open the <code class="bg-gray-200 px-1 text-sm font-bold"
+              >src/members.json</code
+            > file in your forked repository and add your site details in the following
+            format at the end of the list:
+          </p>
+          <pre
+            class="bg-black text-white p-6 font-mono overflow-x-auto shadow-sharp text-xl">
+&#123;
+  "member": "Your name here!",
+  "url": "https://www.yoursite.com/"
+&#125;</pre>
+          <p class="mt-4 text-gray-600 italic text-lg">
+            Then commit and push your changes to your forked repository.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-3xl font-bold uppercase mb-4 flex items-center gap-4">
+          <span class="w-6 h-6 bg-red-600 block shrink-0"></span>
+          3. Submit a Pull Request
+        </h2>
+        <div class="pl-10">
+          <p class="leading-relaxed">
+            Once your changes are pushed, go to the original repository and open
+            a
+            <a
+              href="https://github.com/hackclub/webring/compare"
+              class="text-red-600 underline font-bold hover:bg-red-600 hover:text-white transition-colors"
+              >Pull Request</a
+            >. The maintainers will review your addition, and once merged,
+            you're officially part of the ring!
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-3xl font-bold uppercase mb-4 flex items-center gap-4">
+          <span class="w-6 h-6 bg-red-600 block shrink-0"></span>
+          4. Embed the Ring
+        </h2>
+        <div class="pl-10">
+          <p class="leading-relaxed mb-4">
+            Finally, add the webring to your site! Paste this snippet into your
+            HTML where you want the navigation to appear. It will automatically
+            detect your domain and link to your neighbors.
+          </p>
+          <pre
+            class="bg-black text-white p-6 font-mono text-xl overflow-x-auto shadow-sharp">
+&lt;iframe
+  src="https://webring.hackclub.com/embed"
+  width="150"
+  height="50"
+  frameborder="0"
+  scrolling="no"
+&gt;&lt;/iframe&gt;</pre>
+        </div>
+      </section>
+
+      <a
+        href="/"
+        class="w-full justify-center flex border-4 border-black bg-yellow-300 px-8 py-3 font-bold hover:brightness-80 transition"
+      >
+        Go Home
+      </a>
+    </div>
+  </main>
+</Layout>

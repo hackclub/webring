@@ -1,0 +1,93 @@
+---
+import Layout from "../components/layout.astro";
+import members from "../members.json";
+---
+
+<Layout>
+  <header class="mb-12 border-b-4 border-black pb-8">
+    <h1
+      class="text-6xl md:text-8xl font-bold uppercase tracking-tighter leading-none mb-4"
+    >
+      Hack Club<br />
+      <span class="text-red-600">Webring</span>
+    </h1>
+  </header>
+
+  <div class="space-y-4 mb-16 text-xl">
+    <p>
+      Back in the 90s, webrings once brought the internet together, creating a
+      community for fellow site enthusiasts. We're bringing the concept back
+      over 20 years later to create a community that's more robust and
+      interconnected, refreshing the idea while maintaining the same creative
+      spirit that existed then.
+    </p>
+    <p>
+      The directory below connects <a
+        href="https://hackclub.com"
+        class="text-red-600 underline">Hack Club</a
+      > members via a common navigation bar. Check them out below or join by submitting
+      a pull request!
+    </p>
+  </div>
+
+  <h2 class="text-3xl font-bold uppercase mb-6 flex items-center gap-4">
+    <span class="w-4 h-4 bg-red-600 block"></span>
+    Directory ({members.length})
+  </h2>
+
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 gap-0 border-t-4 border-l-4 border-black"
+  >
+    {
+      members.map((member) => (
+        <a
+          href={member.url}
+          target="_blank"
+          rel="noopener"
+          class="group block p-6 border-r-4 border-b-4 border-black hover:bg-black hover:text-white transition-colors duration-0"
+        >
+          <div class="flex justify-between items-start mb-4">
+            <span class="font-bold text-xl group-hover:text-yellow-300">
+              {member.member}
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-move-up-right-icon lucide-move-up-right"
+            >
+              <>
+                <path d="M13 5H19V11" />
+                <path d="M19 5L5 19" />
+              </>
+            </svg>
+          </div>
+          <div class="font-mono text-sm opacity-60 group-hover:opacity-100 break-all">
+            {member.url
+              .replace(/^https?:\/\//, "")
+              .replace("www.", "")
+              .replace(/\/$/, "")
+              .toLowerCase()}
+          </div>
+        </a>
+      ))
+    }
+  </div>
+
+  <div class="mt-16 border-4 border-black bg-yellow-300 p-8 text-center">
+    <h3 class="text-2xl font-bold mb-2">Want to join the ring?</h3>
+    <p class="mb-6">Add your site to the JSON file.</p>
+    <a
+      href="/join"
+      class="inline-block bg-white border-2 border-black px-8 py-3 font-bold hover:brightness-80 transition"
+    >
+      View Instructions
+    </a>
+  </div>
+</Layout>
